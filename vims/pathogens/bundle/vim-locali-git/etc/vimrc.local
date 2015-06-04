@@ -1,0 +1,13 @@
+
+
+
+
+set nocompatible              " be iMproved, required
+
+set rtp+=/pi/vims/pathogens
+execute pathogen#infect()
+execute locali#airline()
+" execute locali#supertab()
+execute locali#neocomplete()
+execute locali#custi()
+

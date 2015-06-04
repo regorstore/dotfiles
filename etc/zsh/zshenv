@@ -1,0 +1,33 @@
+# /etc/zsh/zshenv: system-wide .zshenv file for zsh(1).
+#
+# This file is sourced on all invocations of the shell.
+# If the -f flag is present or if the NO_RCS option is
+# set within this file, all other initialization files
+# are skipped.
+#
+# This file should contain commands to set the command
+# search path, plus other important environment variables.
+# This file should not contain commands that produce
+# output or assume the shell is attached to a tty.
+#
+# Global Order: zshenv, zprofile, zshrc, zlogin
+
+if [[ -z "$PATH" || "$PATH" == "/bin:/usr/bin" ]]
+then
+	export PATH="/usr/local/bin:/usr/bin:/bin:/usr/games"
+fi
+
+# aliases
+alias ls='ls --color'
+alias ll='ls -la'
+alias grep='grep --color'
+
+# java specs
+export _JAVA_AWT_WM_NONREPARENTING=1
+export JAVA_HOME=/opt/jdk/jdk1.8.0_45
+export PATH=$JAVA_HOME/bin:$PATH
+
+# powerline
+powerline-daemon -q
+. /var/lib/powerline-git/powerline/bindings/zsh/powerline.zsh
+
